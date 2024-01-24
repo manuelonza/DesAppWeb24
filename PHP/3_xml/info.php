@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a href="index.php">< Volver</a>
+
     <ul>
 <?php
+
+// Obtener el número de la variable GET
+$numerin = intval($_GET['v']);
+
 // Cargar el XML
 $xml = simplexml_load_file('xml.xml');
 
-// Verificar si la carga fue exitosa
-if ($xml) {
-    // Recorrer cada libro
-    $i=0;
-    foreach ($xml->libro as $libro) {   
+
+$libro = $xml->libro[$numerin];
+
             echo "<li>
             <img src='{$libro->imagen}'>
             <h2>" . $libro->titulo . "</h2>
@@ -24,14 +28,9 @@ if ($xml) {
             <p>Género: " . $libro->genero . "</p>
             <p>Año de publicación: ".$libro->publicacion->anio."</p>
             <p>Editorial: ".$libro->publicacion->editorial."</p>
-            <a href='info.php?v={$i}'>Ver más</a>
             </li>";
-            $i++;
-    }
-} else {
-    // Mensaje de error si no se puede cargar el archivo
-    echo "<p>Error al cargar el archivo XML.</p>";
-}
+ 
+
 ?>
 </ul>
 
