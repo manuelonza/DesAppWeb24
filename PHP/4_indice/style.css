@@ -1,0 +1,52 @@
+:root{
+    --c1:tan;
+    --c2:#917856;
+    --light:white;
+    --dark:black;
+}
+
+body {
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    padding:20px;
+}
+
+.folders {
+    display: flex;
+    flex-wrap:wrap;
+    gap: 6px;
+    justify-content:center;
+}
+
+.folders a {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    background:var(--c1);
+    padding:20px;
+    border-radius:10px;
+    height:80px;
+    width:80px;
+    transition:0.4s;
+}
+
+.folders a i{font-size:40px; color:var(--c2)}
+
+.folders a:hover{
+    background:var(--c2);
+    color:var(--light);
+    box-shadow:5px 8px 20px #88888888;
+    scale:1.06;
+}
+
+.folders a:hover i{
+    color:var(--light)
+}
+
+
+a{
+    text-decoration:none;
+    color:black;
+    text-align:center;
+}
