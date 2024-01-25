@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproductor de Audio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <audio id="audioPlayer" controls>
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <div id="controls">
+    <button id="prev" onclick="changeTrack(-1)"><i class="fas fa-step-backward"></i></button>
+    <button id="playPause" onclick="togglePlayPause()"><i class="fas fa-play"></i></button>
+    <button id="next" onclick="changeTrack(1)"><i class="fas fa-step-forward"></i></button>
+    <input type="range" id="volume" onchange="changeVolume()" />
+  </div>
+
+  <ul id="playlist"></ul>
+
+  <input type="range" id="progressBar" value="0" max="100" step="0.1" oninput="seek()" />
+
+  <script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPause');
+    const volumeSlider = document.getElementById('volume');
+    const progressBar = document.getElementById('progressBar');
+    let currentTrack = 0;
+
+    const songs = [
+      '001.mp3',
+      '002.mp3',
+      '003.mp3',
+      '004.mp3',
+      '005.mp3',
+      '006.mp3',
+      '007.mp3',
+      '008.mp3'
+    ];
+
+    // Inicializar la lista de reproducción
+    songs.forEach((song, index) => {
+      const li = document.createElement('li');
+      li.textContent = song;
+      li.addEventListener('click', () => playTrack(index));
+      playlist.appendChild(li);
+    });
+
+    function playTrack(index) {
+      currentTrack = index;
+      audioPlayer.src = 'mp3/' + songs[index];
+      audioPlayer.play();
+      updatePlayPauseIcon();
+    }
+
+    function changeTrack(offset) {
+      const newIndex = (currentTrack + offset + songs.length) % songs.length;
+      playTrack(newIndex);
+    }
+
+    function togglePlayPause() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+      } else {
+        audioPlayer.pause();
+      }
+      updatePlayPauseIcon();
+    }
+
+    function updatePlayPauseIcon() {
+      playPauseBtn.innerHTML = audioPlayer.paused ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
+    }
+
+    function changeVolume() {
+      audioPlayer.volume = volumeSlider.value / 100;
+    }
+
+    audioPlayer.addEventListener('timeupdate', updateProgressBar);
+
+    function updateProgressBar() {
+      const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      progressBar.value = progress;
+    }
+
+    function seek() {
+      const percentage = progressBar.value;
+      const seekTime = (percentage / 100) * audioPlayer.duration;
+      audioPlayer.currentTime = seekTime;
+    }
+  </script>
+
+</body>
+</html>
