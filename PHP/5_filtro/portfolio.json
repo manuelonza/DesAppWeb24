@@ -1,0 +1,30 @@
+[
+  {
+    "proyecto": "61 Festival Internacional de Cine de Gijón",
+    "fecha": 2023,
+    "portada": "61ficx.jpg",
+    "descripcion": "Desarrollo de la web de la 61 Edición del Festival Internacional de Cine de Gijón",
+    "ambito": ["web", "User Interface"]
+  },
+  {
+    "proyecto": "60 Festival Internacional de Cine de Gijón",
+    "fecha": 2022,
+    "portada": "60ficx.jpg",
+    "descripcion": "Desarrollo de la web de la 60 Edición del Festival Internacional de Cine de Gijón",
+    "ambito": ["web", "User Interface"]
+  },
+  {
+    "proyecto": "UriaPsicologos",
+    "fecha": 2017,
+    "portada": "uriapsicologosweb.jpg",
+    "descripcion": "Desarrollo de la web de la 60 Edición del Festival Internacional de Cine de Gijón",
+    "ambito": ["web", "User Interface"]
+  },
+  {
+    "proyecto": "Logo Uria Psicologos",
+    "fecha": 2018,
+    "portada": "brandinguria.jpg",
+    "descripcion": "Desarrollo de la web de la 60 Edición del Festival Internacional de Cine de Gijón",
+    "ambito": ["branding"]
+  }
+]
