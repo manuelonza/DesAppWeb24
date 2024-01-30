@@ -20,12 +20,12 @@ body {
 .semana h2 {
   background: #aaaaaa99;
   backdrop-filter: blur(10px);
-  padding: 10px;
+  padding: 6px;
   position: sticky;
-  top: 10px;
+  top: 6px;
   width: 100%;
-  margin: 1px 0;
-  box-shadow: 0 4px 5px 2px #666666AA;
+  margin: 1px 0 12px 0;
+  box-shadow: 0 4px 5px 2px #666666aa;
 }
 
 .semana ul {
@@ -38,7 +38,57 @@ body {
   gap: 5px;
 }
 .semana li {
-  background: #eabe2e;
   padding: 10px;
   border-radius: 10px;
+
+
+
+  display: grid;
+  grid-template-areas:
+  'tit tit tit tit'
+  'hor dur dur sal'
+  ' -  -   mon mon';
 }
+
+.semana li h3         { grid-area: tit; border-bottom: 1px solid black; margin-bottom: 6px; padding-bottom: 3px; }
+.semana li .hora      { grid-area: hor; }
+.semana li .duracion  { grid-area: dur; }
+.semana li .sala      { grid-area: sal; }
+.semana li .monitor   { grid-area: mon; }
+
+
+
+.semana li p{
+  font-size: 14px;
+  padding: 4px;
+}
+
+
+
+
+
+.semana li i{
+  padding-right: 6px;
+}
+
+div.hora {
+  position: sticky;
+  top: 46px;
+  background: #FFF;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 6px 10px;
+  font-size: 10px;
+}
+
+.cat1{
+  background: #eabe2e;
+}
+.cat2{
+  background: #69A4DB;
+}
+.cat3{
+  background: #77AF52;
+}
+
+
