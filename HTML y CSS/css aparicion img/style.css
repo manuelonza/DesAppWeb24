@@ -1,0 +1,31 @@
+body {
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+img {
+  animation: show 1s;
+  max-width: 100%;
+  view-timeline-name: --img;
+  view-timeline-axis: block;
+  animation-timeline: --img;
+  animation-name: show;
+  animation-range: entry 35% cover 40%;
+  animation-fill-mode: both;
+}
+
+@keyframes show {
+  from {
+    opacity: 0.5;
+    scale: 0.5;
+    filter: brightness(5);
+    transform: perspective(850px) rotateX(44deg);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    filter: brightness(1);
+    transform: perspective(850px) rotateX(0deg);
+  }
+}
