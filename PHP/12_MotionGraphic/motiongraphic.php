@@ -29,10 +29,26 @@
 <canvas id="miLienzo" width="960" height="960"></canvas>
 
 <div id="mitexto">
+  <h1>
 	<?php echo $texto?>
+</h1>
+ 
+
 </div>
+<footer>  <input type="range" min="0" max="360" step="any" value="0" onmousemove="hue()" id="tono">
+</footer>
+
 <!-- partial -->
-  <script  src="./script.js"></script>
+
+
+<script>
+function hue() {
+    let mitono = document.getElementById('tono').value;
+    document.getElementById('miLienzo').style.filter = "hue-rotate(" + mitono+ "deg)";
+}
+
+</script>
+  <script  src="script.js"></script>
 
 </body>
 </html>
