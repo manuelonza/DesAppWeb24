@@ -8,6 +8,7 @@ body {
 
 canvas{
 width:100%;
+animation: tonosat 5s infinite;
 }
 
 
@@ -19,7 +20,7 @@ width:100%;
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
-  font-size: 12vw;
+  font-size: 8vw;
   background: #000;
   position: absolute;
   font-weight: bolder;
@@ -54,6 +55,11 @@ footer:hover{
 
 
 @keyframes loco{
-  0%{letter-spacing:-60px; opacity:0.75; }
-  100%{letter-spacing:20px; opacity:1; }
+  0%{letter-spacing:-60px; filter:hue-rotate(0deg);}
+  100%{letter-spacing:20px;  filter: hue-rotate(358deg);}
+}
+
+@keyframes tonosat{
+  0%{filter:hue-rotate(0deg);}
+  100%{filter: hue-rotate(358deg);}
 }

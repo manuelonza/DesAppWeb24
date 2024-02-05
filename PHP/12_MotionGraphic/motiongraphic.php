@@ -29,7 +29,7 @@
 <canvas id="miLienzo" width="960" height="960"></canvas>
 
 <div id="mitexto">
-  <h1>
+  <h1 id="mititulo">
 	<?php echo $texto?>
 </h1>
  
@@ -43,8 +43,9 @@
 
 <script>
 function hue() {
-    let mitono = document.getElementById('tono').value;
-    document.getElementById('miLienzo').style.filter = "hue-rotate(" + mitono+ "deg)";
+    let tamano = document.getElementById('tono').value;
+    document.getElementById('mititulo').style.fontSize=tamano+"px";
+    console.log(tamano);
 }
 
 </script>
