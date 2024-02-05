@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Canva HTML</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<canvas id="miLienzo" width="1500" height="400">
+	
+	</canvas>
+
+<button onclick="migrosor(10)">Grosor 10</button>
+<button onclick="migrosor(40)">Grosor 40</button>
+<button onclick="migrosor(80)">Grosor 80</button>
+
+<input type="range" min="0" max="200" id="barrita" value="0" onmousemove="tamano()" />
+
+<input type="color" id="colorinchi" onmousemove="bg()">
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
