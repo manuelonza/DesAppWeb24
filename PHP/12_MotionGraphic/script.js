@@ -2,10 +2,10 @@ var ancho = window.innerWidth;
 var alto = window.innerHeight;
 
 
-let medida=8;		// alto y ancho del eleemnto
+let medida=10;		// alto y ancho del eleemnto
 let gap=2;			// separación entre elementos
-let porcolumna=54; // elementos por columna
-let porlinea=20;	// elementos por fila
+let porcolumna=50; // elementos por columna
+let porlinea=14;	// elementos por fila
 let velocidad=0.05;	// velocidad en segundos
 
 let wcanvas=(gap+medida)*porcolumna+gap;
