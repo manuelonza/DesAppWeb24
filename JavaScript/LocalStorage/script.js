@@ -68,8 +68,6 @@ function abrirCofre() {
 
 
 
-
-
 function cartera(){
      let dineroActual = localStorage.getItem("dinero");
      dineroActual = dineroActual ? parseFloat(dineroActual) : 0;
