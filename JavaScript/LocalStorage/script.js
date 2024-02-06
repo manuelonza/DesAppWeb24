@@ -12,11 +12,11 @@ function agregarDinero(cantidad) {
   // Almacenar el nuevo valor de "dinero" en LocalStorage
   localStorage.setItem("dinero", dineroActual);
 
-  // Opcional: Puedes mostrar el nuevo valor en la consola o realizar otras acciones
-  alert("Dinero actualizado: " + dineroActual + "€");
+  cartera();
+
 }
 
-function comprar(precio, producto) {
+function comprar(precio, producto){
   // Obtener el valor actual de "dinero" en LocalStorage
   var dineroActual = localStorage.getItem("dinero");
 
@@ -42,15 +42,18 @@ function comprar(precio, producto) {
   }
   // Almacenar el nuevo valor de "dinero" en LocalStorage
   localStorage.setItem("dinero", dineroActual);
+  cartera();
 }
 
 function llave() {
   localStorage.setItem("llave", true);
   alert("🗝️ Has cogido la llave roñosa que lleva años en el fondo del sofá. Llava las manos anda...");
+  cartera();
 }
 
 function abrirCofre() {
   var llave = localStorage.getItem("llave");
+  
 
   console.log(llave);
 
@@ -62,3 +65,20 @@ function abrirCofre() {
     alert("🔒 El cofre está cerrado y necesitas una llave para abrirlo");
   }
 }
+
+
+
+
+
+function cartera(){
+     let dineroActual = localStorage.getItem("dinero");
+     dineroActual = dineroActual ? parseFloat(dineroActual) : 0;
+
+     let html="<ul>";
+     html+=`Tienes ${dineroActual}€`;
+     html+="</ul>";
+    document.querySelector('#cartera').innerHTML=html;
+
+}
+
+cartera();
