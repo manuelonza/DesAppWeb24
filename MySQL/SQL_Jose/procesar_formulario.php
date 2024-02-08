@@ -8,6 +8,12 @@
 <body>
 <?php
 
+$nombre = $_POST['nombre'];
+$email = $_POST['email'];
+$edad = $_POST['edad'];
+$descripcion = $_POST['descripcion'];
+
+
  $servername = "localhost";
  $username = "root";
  $password = "root";
@@ -21,7 +27,7 @@
  }
  
  $sql = "INSERT INTO datos_formulario (nombre, email, mensaje,fecha )
- VALUES ('John', 'john@example.com','Hola mundo','12122012')";
+ VALUES ('".$nombre."', '".$email."','".$descripcion."','".$edad."')";
  
  if ($conn->query($sql) === TRUE) {
    echo "New record created successfully";
@@ -30,7 +36,7 @@
  }
  
  $conn->close();
-?>
+ ?> 
 
 
 </body>
