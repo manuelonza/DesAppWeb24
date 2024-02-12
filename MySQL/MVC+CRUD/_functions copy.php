@@ -39,62 +39,67 @@ $datos=['foto'=>'img','nombre'=>'txt','apellidos'=>'txt'];
 conectar($sql,$datos,true);
 */
 
-function conectar($sql, $datos = array(), $link = 0){
-    try {
-        // Datos de la conexión
-        define('CONN', [
-            'servername'  => 'localhost',
-            'username'    => 'root',
-            'password'    => 'root',
-            'dbname'      => 'miBaseDeDatos'
-        ]);
 
-        // Crear conexión
-        $conn = new mysqli(CONN['servername'], CONN['username'], CONN['password'], CONN['dbname']);
+function conectar($sql, $datos, $link=0){
+    // CONEXIÓN CON BASE DE DATOS
+    // Datos de la conexión
+    define('CONN', [
+        'servername'  => 'localhost',
+        'username'    => 'root',
+        'password'    => 'root',
+        'dbname'      => 'miBaseDeDatos'
+    ]);
+    // Crear conexión
+    $conn = new mysqli(CONN['servername'], CONN['username'], CONN['password'], CONN['dbname']);
+    // Verificar conexión
+    if ($conn->connect_error) { die("La Conexión ha fallado: " . $conn->connect_error);    }
+    // Almacenamos en la variable conexión que la conexión está abierta
+    $conexion=1;
+    // mensaje para desarrolladores
+    development('conexión con Base de Datos establecida correctamente');
+   
 
-        // Verificar conexión
-        if ($conn->connect_error) {
-            throw new Exception("La Conexión ha fallado: " . $conn->connect_error);
-        }
+    // CONSULTA SQL
+    // Se obtiente como parámetro a través de la variable $sql
+    $result = $conn->query($sql);
 
-        // Almacenar que la conexión está abierta
-        $conexion = 1;
-        development('Conexión con Base de Datos establecida correctamente');
-
-        // Consulta SQL
-        $result = $conn->query($sql);
-
-        // Despliegue de datos
+    // DESPLIEGUE DE DATOS
+    // Se optinenen los datos a mostrar a partir de la variable $datos y %link
+    
+    // si $datos tiene algo, mostrará la lista de elementos solicitados, si no no se ejecutará
         if (!empty($datos)) {
             if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '<li>';
-                    foreach ($datos as $clave => $valor) {
-                        if ($link) {
-                            echo '<a href="info.php?id=' . $row["id"] . '">';
+            // output data of each row
+            $i=0;
+            while($row = $result->fetch_assoc()) {
+                echo '<li>';
+                    foreach($datos as $clave => $valor){
+                        if($link){
+                            echo '<a href="info.php?id='.$row["id"].'">';
                         }
-                        if ($valor == 'img') {
-                            echo '<img src="' . $row[$clave] . '">';
-                        } else {
-                            echo $row[$clave] . " ";
+                        if($valor=='img'){
+                            echo '<img src="'.$row[$clave].'">';
                         }
-                        if ($link) {
+                        else{
+                        echo $row[$clave]." " ;
+                        }
+                        if($link){
                             echo '</a>';
                         }
                     }
-                    echo '</li>';
-                }
-            } else {
-                echo "0 results";
+                echo '</li>';
+                $i++;
             }
-        }
+            } else {
+            echo "0 results";
+            }
 
-        // Cerrar conexión
-        $conn->close();
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-    }
-}
+        } // cierre de if $datos !empty
+    
+    
+    
+} // cierre de función
+
 
 
 
