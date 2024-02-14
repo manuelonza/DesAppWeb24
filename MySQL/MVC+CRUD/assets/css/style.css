@@ -63,3 +63,45 @@ nav ul{ list-style:none; padding-left:0; display:flex; gap:10px;}
 .btn:hover{
     background:var(--c2);
 }
+
+ul.lista{
+    list-style:none;
+    padding-left:0;
+    
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:space-around;
+    
+}
+ul.lista li{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    outline:1px solid var(--c1);
+    padding:10px;
+    border-radius:10px;
+}
+
+ul.lista li:hover{
+    background:var(--c1);
+}
+
+ul.lista li:hover a{
+    color:white
+}
+
+
+ul.lista li img{
+    width:80px;
+    display:block;
+    margin-bottom:10px;
+}
+
+
+
+ul.info li{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
