@@ -16,14 +16,15 @@ const RUTA = [
 // cargar bloques html
 function cargar($bloque){
     global $conexion;
+    global $titulo;
 
     switch($bloque){
         //include
         case 'header':
-            include RUTA['inc'].'_header.php';
+            include_once RUTA['inc'].'_header.php';
             break;
         case 'footer':
-            include RUTA['inc'].'_footer.php';
+            include_once RUTA['inc'].'_footer.php';
             break;
         case 'menu':
             include RUTA['inc'].'_menu.php';
@@ -51,6 +52,25 @@ function development($texto){
 
 }
 
+function mostrarArray($array){
+    if(DESARROLLO){
+    echo '<div class="desarrollo">';
+            echo '<pre>';
+            print_r($array);
+            echo '</pre>';
+            echo '</div>';
+        }
+}
+
+
+
+
+
+
+
+
+
+
 // e('Lo que quieres escribir')
 function e($txt){
     echo $txt;
@@ -67,8 +87,7 @@ function tag($tag,$content,$id='',$class=''){
     echo '<'.$tag.' id="'.$id.'" class="'.$class.'">'.$content.'</'.$tag.'>';
 }
 
-
-function consulta($sql){
+function consulta($sql, $devolverDatos=true){
     // Datos de la conexión
     define('CONN', [
         'servername'  => 'localhost',
@@ -86,20 +105,51 @@ function consulta($sql){
       }
  
       // Consulta SQL
-      return $result = $conn->query($sql);
+      $result = $conn->query($sql);
 
       if (!$result) {
-        die("Error al ejecutar la consulta: " . $conn->error);
-         }
+            die("Error al ejecutar la consulta: " . $conn->error);
+            }
 
-        $datos = [];
+            if($devolverDatos){
+            $datos = [];
 
-        while ($fila = $result->fetch_assoc()) {
-        $datos[] = $fila;
-        }
-    //devuelve un array con los datos solicitados de la consulta
-    return $datos;
+            while ($fila = $result->fetch_assoc()) {
+            $datos[] = $fila;
+            }
+            //devuelve un array con los datos solicitados de la consulta
+            return $datos;
+            }
 
     //cerrar conexión base de datos.
     $conn->close();
+}
+
+
+
+
+
+
+
+
+// Convierte texto en URL
+function aURL($texto) {
+       // Convierte a minúsculas
+       $url = strtolower($texto);
+
+       // Reemplaza espacios y caracteres especiales con guiones
+       $url = str_replace(' ', '-', $url);
+       $url = preg_replace('/[^a-z0-9\-]/', '', $url); // Elimina caracteres no alfanuméricos excepto guiones
+   
+       return $url;
+}
+
+
+
+
+// Función para generar el iframe de Google Maps
+function generarIframe($direccion) {
+     // Puedes personalizar el tamaño y otros parámetros según tus necesidades
+     $iframe = '<iframe width="100%" height="400" src="https://maps.google.com/maps?hl=en&amp;q='. urlencode($direccion) . '(undefined)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+     return $iframe;
 }

@@ -1,7 +1,16 @@
 <?
-$titulo="Inicio";
+$titulo="Reset";
 require '_functions.php';
 cargar('header');
+?>
+
+
+<a href="borraTabla.php" class="btn">Borrar Tabla</a>
+<a href="crearTabla.php" class="btn">Crear Tabla</a>
+<a href="inserTabla.php" class="btn">Insertar Datos</a>
+
+<h2>Estos son los datos actuales de la tabla:</h2>
+<?
 
  $sql="SELECT * FROM alumnos";
  $alumnos=consulta($sql);
@@ -13,7 +22,7 @@ foreach ( $alumnos as $alumno) {
     
     echo <<<HTML
     <li>
-      <a href="info.php?id={$alumno['id']}">
+      <a href="info.php?v={$alumno['id']}">
         <img src="{$ruta}{$alumno['foto']}" alt="{$alumno['nombre']} {$alumno['apellidos']}">
         {$alumno['nombre']} {$alumno['apellidos']}
       </a>
@@ -24,7 +33,4 @@ foreach ( $alumnos as $alumno) {
 echo '</ul>';
 
 
-cargar('footer');
-
-
-//llamar al footer.php ?>
+cargar('footer');?>

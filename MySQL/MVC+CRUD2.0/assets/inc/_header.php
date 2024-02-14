@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><? e($titulo) ?></title>
     <link rel="stylesheet" href="<?echo RUTA['css']?>style.css">
 </head>
 <body>
@@ -20,3 +20,4 @@
     </nav>
 </header>
 <main>
+    <? tag('h1',$titulo) ?>
