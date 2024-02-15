@@ -4,7 +4,7 @@ require '_functions.php';
 cargar('header');
 ?>
 
-<form action="">
+<form action="_insertar-datos.php" method="get">
     <label>Nombre
         <input type="text" name="nombre" require>
     </label>

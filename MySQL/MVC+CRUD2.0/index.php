@@ -24,7 +24,4 @@ foreach ( $alumnos as $alumno) {
 echo '</ul>';
 
 
-cargar('footer');
-
-
-//llamar al footer.php ?>
+cargar('footer');?>

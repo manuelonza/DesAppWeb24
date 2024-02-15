@@ -17,8 +17,12 @@ $titulo = 'Editar: '.$titulo;
 cargar('header'); ?>
 
 
-<form action="">
-    <label>Nombre
+<form action="_update-datos.php">
+
+        <input type="hidden" name="id" value="<? e($alumnos[0]['id'])?>" require>
+
+
+<label>Nombre
         <input type="text" name="nombre" value="<? e($alumnos[0]['nombre'])?>" require>
     </label>
     <label>Apellidos
