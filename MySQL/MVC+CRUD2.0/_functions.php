@@ -1,8 +1,10 @@
 <?php
 // Elementos modificables
-const DESARROLLO = 1;
+const DESARROLLO = 0;
 
 
+//
+include '_datos.php';
 
 // Registro de la ruta de todos los archivos
 const RUTA_RECURSOS ='assets/';

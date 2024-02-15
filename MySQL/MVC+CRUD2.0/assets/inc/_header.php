@@ -10,11 +10,12 @@
 
 
 <header>
+    <a href="index.php" class="main logo"><? echo DATOS['titulo']?></a>
     <nav>
         <ul>
             <li><a href="index.php">Inicio</a></li>
             <li><a href="reset.php">Reset</a></li>
-            <li><a href="#">Item</a></li>
+            <li><a href="form.php">Añadir</a></li>
             <li><a href="#">Item</a></li>
         </ul>
     </nav>

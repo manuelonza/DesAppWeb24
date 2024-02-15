@@ -20,6 +20,9 @@ a{
     color:var(--c1);
     text-decoration: none;
 }
+a:hover{
+    color:var(--c2);
+}
 
 p a{ text-decoration: underline;}
 
@@ -49,7 +52,8 @@ nav ul{ list-style:none; padding-left:0; display:flex; gap:10px;}
     margin-top: 10px;
 }
 
-.btn{
+.btn,
+input[type="submit"]{
     border-radius:var(--bdrs);
     background:var(--c1);
     border: 1px solid var(--c2);
@@ -60,8 +64,10 @@ nav ul{ list-style:none; padding-left:0; display:flex; gap:10px;}
     cursor:pointer
 }
 
-.btn:hover{
+.btn:hover,
+input[type="submit"]:hover{
     background:var(--c2);
+    color:white;
 }
 
 ul.lista{
@@ -111,9 +117,35 @@ ul.lista li img{
 }
 
 
-
-
-ul.info li{
+.info{
     display:grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    margin-bottom: 20px;
 }
+
+
+header{display: flex;justify-content: space-between;align-items: center;}
+
+.main.logo{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+form{
+    border: 1px solid var(--c1);
+    padding:20px;
+    border-radius:20px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+label{
+    display:grid;
+    grid-template-columns:1fr 3fr;
+}
+

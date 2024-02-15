@@ -74,6 +74,7 @@ consulta($sql,false);
 
 <p>Datos insertardos correctamente</p>
 
+<a href="inserTabla.php" class="btn">Insertar más datos</a>
 <a href="index.php" class="btn">Volver al Inicio</a>
 
 <? cargar('footer');?>

@@ -1,6 +1,6 @@
 </main>
 <footer>
-    <p>&copy</p>
+    <p>&copy Copyright <? echo date('Y')?> - <? echo DATOS['titulo'] ?> - Versión: <? echo DATOS['version'] ?></p>
 </footer>
 
 

@@ -16,15 +16,18 @@ $titulo = $alumno = $alumnos[0]['nombre']." ".$alumnos[0]['apellidos'];
 
 cargar('header'); ?>
 
+<a class="btn" href="form_edit.php?id=<? e($id)?>">Editar</a>
+
 <div class="info">
- <img src="<?e(RUTA['img'].$alumnos[0]['foto'])?>" alt="<?e($alumno)?>">
- <p>Correo electrónico: <a href="mailto:<?e($alumnos[0]['email'])?>"><?e($alumnos[0]['email'])?></a></p>
- <p>Teléfono: <a href="tel:<?e($alumnos[0]['telefono'])?>"><?e($alumnos[0]['telefono'])?></a></p>
- <p>Dirección: <?e($alumnos[0]['direccion'])?></p>
- <a href="https://www.openstreetmap.org/search?query=<? echo urlencode($alumnos[0]['direccion']); ?>">Ver en Open Maps</a>
- <p>----</p>
- <? echo generarIframe($alumnos[0]['direccion']); ?>
+    <div>
+        <p>Correo electrónico: <a href="mailto:<?e($alumnos[0]['email'])?>"><?e($alumnos[0]['email'])?></a></p>
+        <p>Teléfono: <a href="tel:<?e($alumnos[0]['telefono'])?>"><?e($alumnos[0]['telefono'])?></a></p>
+        <p>Dirección: <?e($alumnos[0]['direccion'])?></p>
+        <a href="https://www.openstreetmap.org/search?query=<? echo urlencode($alumnos[0]['direccion']); ?>">Ver en Open Maps</a>
+    </div>
+    <img src="<?e(RUTA['img'].$alumnos[0]['foto'])?>" alt="<?e($alumno)?>">
 </div>
+<? echo generarIframe($alumnos[0]['direccion']); ?>
 
 <? cargar('footer');
 
