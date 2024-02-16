@@ -26,6 +26,21 @@ img{
 }
 
 
+.btn{
+    border-radius:8px;
+    padding:4px 6px;
+    margin-right:4px;
+    border:#888 solid 1px;
+    color:#888;
+
+}
+
+.btn.active{
+    border-color:black;
+    color:black;
+    
+}
+
 
 /* Sistema de filtrado */
 .filterDiv{ display: none;}

@@ -61,8 +61,8 @@ peliculas.trailer,
 peliculas.estreno,
 peliculas.fin,
 generos.nombre_genero
-FROM cartelera.peliculas
-INNER JOIN cartelera.generos
+FROM peliculas
+INNER JOIN generos
 ON peliculas.genero_id = generos.id_genero;";
 
 $result = $conn->query($sql);
