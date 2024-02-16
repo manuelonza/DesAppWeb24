@@ -55,10 +55,16 @@ INSERT INTO `generos` (`id_genero`, `nombre_genero`, `descripcion_genero`, `foto
 
 INSERT INTO `peliculas` (`id`, `titulo`, `cartel`, `sinopsis`, `duracion`, `calificacion`, `trailer`, `estreno`, `fin`, `genero_id`)
 VALUES
-(NULL, 'Anatomía de una Caída', 'anatomia-caida.jpg', 'Unos que caen', '107', '12', 'youtube.com', '2024-01-10', '2024-02-29', '1'),
-(NULL, 'Agrylle', 'argylle.jpg', 'Super agente secreto', '75', '16', 'youtube.com/argaile', '2024-01-18', '2024-02-23', '1');
+(NULL, 'Anatomía de una Caída', '6105.jpg', 'Unos que caen', '107', '12', 'youtube.com', '2024-01-10', '2024-02-29', '1'),
+(NULL, 'Agrylle',               '6183.jpg', 'Super agente secreto', '75', '16', 'youtube.com/argaile', '2024-01-18', '2024-02-23', '1'),
+(NULL, 'Ferrari',               '6333.jpg', 'Unos que caen', '107', '12', 'youtube.com', '2024-01-10', '2024-02-29', '1'),
+(NULL, 'Cazafantasmas',         '6399.jpg', 'Unos que caen', '107', '12', 'youtube.com', '2024-01-10', '2024-02-29', '1'),
+(NULL, 'Secretos de un Escándalo', '6390.jpg', 'Unos que caen', '107', '12', 'youtube.com', '2024-01-10', '2024-02-29', '1');
 
 
+
+INSERT INTO `generos`(`nombre_genero`, `descripcion_genero`, `foto_genero`)
+VALUES ('thriller','Descubren algo','thriller.jpg'), ('romántico','Quierense mucho','romantico.jpg');
 
 
 -
