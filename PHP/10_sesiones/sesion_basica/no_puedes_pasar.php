@@ -1,1 +1,0 @@
-<h1>No puedes acceder aquí frikazu</h1>
